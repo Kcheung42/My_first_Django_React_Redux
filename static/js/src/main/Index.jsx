@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { HelloWorld } from './components/HelloWorld';
 import { App1Container } from './containers/App1Container';
-import { changeName, addToDo } from './actions';
+import { changeName, addToDo, toggleToDo } from './actions';
 import { reducers } from './reducers';
 import { createStore } from 'redux';
 
@@ -35,6 +35,9 @@ store.dispatch(changeName('Cheung'))
 store.dispatch({type: "CHANGE_AGE", payload: 27})
 store.dispatch({type: "CHANGE_AGE", payload: 21})
 store.dispatch({type: "CHANGE_AGE", payload: 33})
-store.dispatch(addToDo('My first task'))
+store.dispatch(addToDo('My First task'))
+store.dispatch(addToDo('My Second task'))
+store.dispatch(addToDo('My Third task'))
+store.dispatch(toggleToDo(0))
 
 render(<App1Container />, document.getElementById('react-root'))

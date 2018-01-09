@@ -9,44 +9,35 @@ import {
 } from './actions'
 
 
-const initialState = {
-  visibilityFilter: VisibilityFilters.SHOW_ALL,
-  todos: []
-}
-
-
-// const visibilityReducer = ( state = SHOW_ALL, action ) => {
-//   switch (action.type){
+// const initialState = {
+//   visibilityFilter: VisibilityFilters.SHOW_ALL,
+//   todos: []
+// }
+// const toDoReducer = (state=initialState, action) => {
+//   switch(action.type){
 //     case SET_VISIBILITY_FILTER:
 //       state = {...state, visibilityFilter:action.payload}
+//     case ADD_TODO:
+//       state = {...state,
+//         todos: [...state.todos,
+//           {
+//             text: action.payload,
+//             completed: false
+//           }
+//         ]
+//       }
+//       console.log("!", state)
+//     case TOGGLE_TODO: //copy all objects in tdo array except todo at index
+//       state = {...state,
+//         todos: state.todos.map((todo,index) => {
+//           if (index === action.payload){
+//             state = {...todo, completed: !todo.completed }
+//           }
+//         })
+//       }
 //   }
+//   return state
 // }
-
-const toDoReducer = (state=initialState, action) => {
-  switch(action.type){
-    case SET_VISIBILITY_FILTER:
-      state = {...state, visibilityFilter:action.payload}
-    case ADD_TODO:
-      state = {...state,
-        todos: [...state.todos,
-          {
-            text: action.payload,
-            completed: false
-          }
-        ]
-      }
-      console.log("!", state)
-    case TOGGLE_TODO: //copy all objects in tdo array except todo at index
-      state = {...state,
-        todos: state.todos.map((todo,index) => {
-          if (index === action.payload){
-            state = {...todo, completed: !todo.completed }
-          }
-        })
-      }
-  }
-  return state
-}
 
 //reducer composition below, splitting of state to manage
 
@@ -54,14 +45,25 @@ const toDoReducer = (state=initialState, action) => {
 const todos = (state=[], action) => {
   switch(action.type){
     case ADD_TODO:
-      state = {...state,
-        todos: [...state.todos,
-        ]
-      }
+      return [...state,
+        {
+          text: action.payload,
+          completed: false
+        }
+      ]
+    case TOGGLE_TODO:
+      return state.map((todo, index) => {
+        if (index === action.payload)
+          return {...todo, completed: !todo.completed}
+        return todo
+       })
+    default:
+      return state
   }
 }
 
 const { SHOW_ALL } = VisibilityFilters
+
 const visibilityFilter = (state=SHOW_ALL, action ) => {
   switch(action.type){
     case SET_VISIBILITY_FILTER:
@@ -93,5 +95,6 @@ const tweetsReducer = (state=[], action) => {
 export const reducers = combineReducers({
   user: userReducer,
   tweets: tweetsReducer,
-  visibilityFilter: toDoReducer
+  visibilityFilter: visibilityFilter,
+  todos: todos
 })
