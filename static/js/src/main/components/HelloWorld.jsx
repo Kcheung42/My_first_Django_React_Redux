@@ -6,6 +6,6 @@ export class HelloWorld extends React.Component {
 				<div>
 					Hello {this.props.children}
 				</div>
-		)
+				)
 	}
 }

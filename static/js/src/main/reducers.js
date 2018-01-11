@@ -10,8 +10,8 @@ import {
 
 
 // const initialState = {
-// visibilityFilter: VisibilityFilters.SHOW_ALL,
-// todos: []
+//visibilityFilter: VisibilityFilters.SHOW_ALL,
+//todos: []
 // }
 // const toDoReducer = (state=initialState, action) => {
 // switch(action.type){
@@ -19,13 +19,13 @@ import {
 //		 state = {...state, visibilityFilter:action.payload}
 //	 case ADD_TODO:
 //		 state = {...state,
-//			 todos: [...state.todos,
-//				 {
+//			todos: [...state.todos,
+//				{
 //					 text: action.payload,
 //					 completed: false
-//				 }
-//			 ]
-//		 }
+//				}
+//			]
+//		}
 //		 console.log("!", state)
 //	 case TOGGLE_TODO: //copy all objects in tdo array except todo at index
 //		 state = {...state,
@@ -56,7 +56,7 @@ const todos = (state=[], action) => {
 				if (index === action.payload)
 					return {...todo, completed: !todo.completed}
 				return todo
-			 })
+			})
 		default:
 			return state
 	}
