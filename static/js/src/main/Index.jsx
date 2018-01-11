@@ -7,13 +7,13 @@ import { reducers } from './reducers';
 import { createStore } from 'redux';
 
 // const reducer = function(state, action){
-//   if (action.type == 'INC'){
-//     return state + action.payload
-//   }
-//   if (action.type == 'DEC'){
-//     return state - action.payload
-//   }
-//   return state;
+// if (action.type == 'INC'){
+//  return state + action.payload
+// }
+// if (action.type == 'DEC'){
+//  return state - action.payload
+// }
+// return state;
 // }
 //
 

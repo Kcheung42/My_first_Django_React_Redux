@@ -5,27 +5,27 @@ export const TOGGLE_TODO = 'TOGGLE_TODO'
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
 
 export function changeName(payload){
-  return {type: CHANGE_NAME, payload }
+	return {type: CHANGE_NAME, payload }
 }
 
 export function changeAge(payload){
-  return { type: CHANGE_AGE, payload }
+	return { type: CHANGE_AGE, payload }
 }
 
 export const VisibilityFilters = {
-  SHOW_ALL: 'SHOW_ALL',
-  SHOW_COMPLETED: 'SHOW_COMPLETED',
-  SHOW_ACTIVE: 'SHOW_ACTIVE',
+	SHOW_ALL: 'SHOW_ALL',
+	SHOW_COMPLETED: 'SHOW_COMPLETED',
+	SHOW_ACTIVE: 'SHOW_ACTIVE',
 }
 
 export function addToDo(payload){
-  return { type: ADD_TODO, payload }
+	return { type: ADD_TODO, payload }
 }
 
 export function toggleToDo(payload){
-  return { type: TOGGLE_TODO, payload }
+	return { type: TOGGLE_TODO, payload }
 }
 
 export function setVisibilityFilter(payload){
-  return { type: SET_VISIBILITY_FILTER, payload }
+	return { type: SET_VISIBILITY_FILTER, payload }
 }

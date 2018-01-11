@@ -17,7 +17,7 @@ indent_size = 4
 
 # JavaScript, JSX, CSS, SCSS, HTML settings
 [*.{js,jsx,css,scss,html}]
-indent_style = space
+indent_style = tab
 indent_size = 2
 
 # Markdown settings
