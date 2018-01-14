@@ -5,5 +5,6 @@ python -c "import django; django.setup(); \
 	     username='$DJANGO_SU_NAME', \
 		    email='$DJANGO_SU_EMAIL', \
 			   password='$DJANGO_SU_PASSWORD')"
+python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver 0.0.0.0:8000

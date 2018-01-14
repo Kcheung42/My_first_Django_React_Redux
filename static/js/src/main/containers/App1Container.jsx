@@ -12,11 +12,11 @@ export class App1Container extends React.Component{
 
 	render(){
 		return(
-				<div>
-						<HelloWorld>Bambi</HelloWorld>
-						<Button label="Buton Component">Bambi</Button>
-						<Toggle />
-				</div>
+			<div>
+				<HelloWorld>Bambi</HelloWorld>
+				<Button label="Buton Component">Bambi</Button>
+				<Toggle />
+			</div>
 		);
 	}
 }
