@@ -44,11 +44,11 @@ Javascript has versions named ECMAScript (ES). Allows us to have a clean, mainta
 
 ## Webpack
 
-## Why Django + React
+## Why Django + React + Redux
 
 1. Turn your site into a single page web app. Faster.
 2. Use the same codebase for iOS and Android (with React Native)
-3. Manage complicated state more easily
+3. Manage complicated state more easily (Redux)
 4. React is Backend Agnostic
 
 Boilerplate adapted from:

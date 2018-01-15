@@ -40,13 +40,12 @@ import {
 // }
 
 //reducer composition below, splitting of state to manage
-
-
 const todos = (state=[], action) => {
 	switch(action.type){
 		case ADD_TODO:
 			return [...state,
 				{
+					id: action.id,
 					text: action.payload,
 					completed: false
 				}

@@ -18,8 +18,13 @@ export const VisibilityFilters = {
 	SHOW_ACTIVE: 'SHOW_ACTIVE',
 }
 
+let nextTodoId = 0
 export function addToDo(payload){
-	return { type: ADD_TODO, payload }
+	return {
+		type: ADD_TODO,
+		id: nextTodoId++,
+		payload
+	}
 }
 
 export function toggleToDo(payload){
