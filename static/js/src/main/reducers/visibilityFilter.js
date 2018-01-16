@@ -1,35 +1,27 @@
 // ************************************************************************** //
 //                                                                            //
 //                                                        :::      ::::::::   //
-//   Todo.js                                            :+:      :+:    :+:   //
+//   visibilityFilter.js                                :+:      :+:    :+:   //
 //                                                    +:+ +:+         +:+     //
 //   By: kcheung <kcheung@42.fr>                    +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
-//   Created: 2018/01/15 11:04:32 by kcheung           #+#    #+#             //
-//   Updated: 2018/01/15 11:05:41 by kcheung          ###   ########.fr       //
+//   Created: 2018/01/15 13:39:59 by kcheung           #+#    #+#             //
+//   Updated: 2018/01/15 13:50:31 by kcheung          ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
-//
-//Presentaional Component
 
-import React from 'react'
-import PropTypes from 'prop-types'
+// import VisibilityFilters from '../actions'
+import types from '../actions/actionTypes'
 
-const Todo = ({ text, completed, onClick }) => (
-	<li
-	onClick={onClick}
-	style={{
-		textDecoration: completed ? 'line-through' : 'none'
-	}}
-	>
-	{text}
-	</li>
-)
+// const { SHOW_ALL } = VisibilityFilters
 
-Todo.propTypes = {
-	onClick: PropTypes.func.isRequired,
-	completed: PropTypes.bool.isRequired,
-	text: PropTypes.string.isRequired
+const visibilityFilter = (state='SHOW_ALL', action ) => {
+	switch(action.type){
+		case types.SET_VISIBILITY_FILTER:
+			return action.payload
+		default:
+				return state
+	}
 }
 
-export default Todo
+export default visibilityFilter

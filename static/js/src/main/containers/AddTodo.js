@@ -1,40 +1,46 @@
 // ************************************************************************** //
 //                                                                            //
 //                                                        :::      ::::::::   //
-//   Link.js                                            :+:      :+:    :+:   //
+//   AddTodo.js                                         :+:      :+:    :+:   //
 //                                                    +:+ +:+         +:+     //
 //   By: kcheung <kcheung@42.fr>                    +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
-//   Created: 2018/01/15 11:11:44 by kcheung           #+#    #+#             //
-//   Updated: 2018/01/15 11:11:46 by kcheung          ###   ########.fr       //
+//   Created: 2018/01/15 11:38:09 by kcheung           #+#    #+#             //
+//   Updated: 2018/01/15 12:09:41 by kcheung          ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
 import React from 'react'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { addToDo } from '../actions'
 
-const Link = ({ active, children, onClick }) => {
-	if (active) {
-		return <span>{children}</span>
-	}
+let AddTodo = ({subscribe, dispatch} ) =>{
+	let input
 
-	return (
-		<a
-		href="#"
-		onClick={e => {
-			e.preventDefault()
-			onClick()
-		}}
+	return(
+		<div>
+		<form
+			onSubmit={e => {
+				e.preventDefault()
+				if(!input.value.trim()){
+					return
+				}
+				dispatch(addToDo(input.value))
+				input.value = ''
+			}}
 		>
-		{children}
-		</a>
+			<input
+				ref={node => {
+					input = node
+				}}
+			/>
+			<button type="submit">Add Task</button>
+		</form>
+		</div>
 	)
 }
 
-Link.propTypes = {
-	active: PropTypes.bool.isRequired,
-	children: PropTypes.node.isRequired,
-	onClick: PropTypes.func.isRequired
-}
+AddTodo = connect()(AddTodo)
 
-export default Link
+export default AddTodo
