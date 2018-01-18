@@ -4,11 +4,30 @@
 {% load render_bundle from webpack_loader %}
 
 {% block head_title %}
-Django Index
+Post Detail
 {% endblock head_title %}
 
 {% block body %}
 <div id="react-root"></div>
+
+{% if messages %}
+<ul>
+	{% for m in messages  %}
+		<li
+			{% if m.tags %}
+				class="{{ m.tags }}"
+			{% endif %}
+		>
+			{% if "html_safe" in m.tags %}
+				{{ m|safe }}
+			{% else %}
+				{{ m }}
+			{% endif %}
+		</li>
+	{% endfor %}
+</ul>
+{% endif %}
+
 <h1>{{ title }}</h1>
 
 {{ instance.title }}<br/>

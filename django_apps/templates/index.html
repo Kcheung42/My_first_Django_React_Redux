@@ -9,7 +9,7 @@ Django Index
 
 {% block body %}
 <div id="react-root"></div>
-<h1>{{ title }} is working</h1>
+<h1>{{ title }} is Working </h1>
 
 {% for obj in object_list %}
 
@@ -27,5 +27,5 @@ Updated: {{ obj.updated }}<br/>
 {% endfor %}
 
 {% render_bundle 'vendors' %}
-{% render_bundle 'Index' %}
+{# {% render_bundle 'Index' %} #}
 {% endblock body %}

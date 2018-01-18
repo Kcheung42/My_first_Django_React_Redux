@@ -6,7 +6,7 @@
 //   By: kcheung <kcheung@42.fr>                    +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2018/01/15 11:14:46 by kcheung           #+#    #+#             //
-//   Updated: 2018/01/15 14:05:57 by kcheung          ###   ########.fr       //
+//   Updated: 2018/01/17 13:18:57 by kcheung          ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -38,7 +38,7 @@ const store = createStore(reducers);
 store.subscribe(() => {
 	console.log("store changed", store.getState())
 })
-//
+
 // Bound ActionCreator
 // const boundChangeName = text => dispatch(changeName("Bambi"))
 //
