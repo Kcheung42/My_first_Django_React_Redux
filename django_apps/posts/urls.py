@@ -12,12 +12,12 @@ from .views import (
 )
 
 urlpatterns = [
-	url(r'^$', post_home),
+	url(r'^$', post_home, name='index'),
 	url(r'^(?P<id>\d+)/$', post_detail, name='detail'),
 	url(r'^api/$', PostListAPIView.as_view(), name='list-api'),
 	url(r'^api/(?P<id>\d+)/$', PostDetailAPIView.as_view(), name='detail-api'),
 	url(r'^create/$', post_create),
-	url(r'^delete/$', post_delete),
+	url(r'^delete/(?P<id>\d+)/$', post_delete),
 	url(r'^list/$', post_list, name='list'),
 	url(r'^edit/(?P<id>\d+)/$', post_update),
 ]

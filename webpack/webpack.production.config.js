@@ -6,7 +6,8 @@ var config = require('./webpack.base.config.js');
 config.entry = {
   Index: [
     path.join(__dirname, '../static/js/src/main/index')
-  ]
+  ],
+  vendors: ['react'],
 };
 
 config.output = {
@@ -28,7 +29,8 @@ config.plugins = [
   new webpack.optimize.UglifyJsPlugin({
     mangle: false,
     sourcemap: false
-  })
+  }),
+  new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'), //seperates bundle files, one for react.js one for our app. Caches react library so users don't have to redownload.
 ];
 
 module.exports = config

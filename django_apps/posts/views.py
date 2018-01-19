@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
 from django.contrib import messages
 
@@ -25,16 +25,14 @@ def post_create(request): #C
 		instance.save()
 		messages.success(request, "Sucessfully Created")
 		return HttpResponseRedirect(instance.get_absolute_url())
-	else:
-		messages.error(request, "No tsucessfully Created")
+	context = {
+		"form": form,
+	}
 	# form = PostForm()
 	# if request.method == "POST":
 	# 	print request.POST.get("title")
 	# 	print request.POST.get("content")
 	# 	# Post.objects.create(title="title") #DONOT DO THIS!
-	context = {
-		"form": form,
-	}
 	return render(request, "post_form.html", context)
 
 def post_detail(request, id=None): #R
@@ -51,7 +49,7 @@ def post_list(request):
 		"object_list": queryset,
 		"title":"List",
 	}
-	return render(request, "index.html", context)
+	return render(request, "post_list.html", context)
 
 def post_update(request, id=None): #U
 	instance = get_object_or_404(Post, id=id)
@@ -59,7 +57,7 @@ def post_update(request, id=None): #U
 	if form.is_valid():
 		instance = form.save(commit=False)
 		instance.save()
-		messages.success(request, "<a href='#'>Saved Success!", extra_tags='html_safe')
+		messages.success(request, "<a href='#'>Item</a> Success!", extra_tags='html_safe')
 		return HttpResponseRedirect(instance.get_absolute_url())
 	context = {
 		"title": instance.title,
@@ -68,12 +66,15 @@ def post_update(request, id=None): #U
 	}
 	return render(request, "post_form.html", context)
 
-def post_delete(request): #D
-	return HttpResponse("<h1>Welcome to delete</h1>")
+def post_delete(request, id=None): #D
+	instance = get_object_or_404(Post, id=id)
+	instance.delete()
+	messages.success(request, "Sucessfully Deleted", extra_tags='html_safe')
+	return redirect("posts:index")
 
 def post_home(request): #C
 	context = {
-		"title": "Welcome to My Bambo's Blog"
+		"title": "Welcome to Bambo's Blog"
 	}
 	return render(request, "index.html", context)
 

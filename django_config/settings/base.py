@@ -20,6 +20,8 @@ from decouple import config
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 APPS_DIR = os.path.join(BASE_DIR, 'django_apps')
+print("This is base dir==============={}".format(BASE_DIR))
+print("This is Apps dir==============={}".format(APPS_DIR))
 
 
 # SECRET KEY
@@ -203,7 +205,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
-
 
 # MEDIA CONFIGURATION
 # ------------------------------------------------------------------------------

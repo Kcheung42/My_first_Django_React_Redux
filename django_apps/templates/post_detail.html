@@ -7,35 +7,18 @@
 Post Detail
 {% endblock head_title %}
 
+{% block body_class %}
+col-sm-6 col-sm-offset-3
+{% endblock body_class %}
+
 {% block body %}
 <div id="react-root"></div>
 
-{% if messages %}
-<ul>
-	{% for m in messages  %}
-		<li
-			{% if m.tags %}
-				class="{{ m.tags }}"
-			{% endif %}
-		>
-			{% if "html_safe" in m.tags %}
-				{{ m|safe }}
-			{% else %}
-				{{ m }}
-			{% endif %}
-		</li>
-	{% endfor %}
-</ul>
-{% endif %}
+<h1>{{ title }} <small>{{ instance.timestamp }}</small></h1>
 
-<h1>{{ title }}</h1>
-
-{{ instance.title }}<br/>
-{{ instance.content }}<br/>
-{{ instance.timestamp }}<br/>
+{{ instance.content|linebreaks }}<br/>
 {{ instance.updated }}<br/>
 {{ instance.id }}<br/>
-{{ instance.pk }}<br/>
 
 {# {% render_bundle 'vendors' %} #}
 {# {% render_bundle 'Index' %} #}

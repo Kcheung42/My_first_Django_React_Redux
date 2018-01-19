@@ -32,6 +32,11 @@
  EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
  DEFAULT_FROM_EMAIL=admin@gmail.com
 ```
+##### important! if running production set:
+```
+DJANGO_SETTINGS_MODULE = django_config.settings.production
+DEBUG = false
+```
 
 2. npm install
 3. make docker-build-dev

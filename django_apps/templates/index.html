@@ -3,29 +3,18 @@
 {% load staticfiles %}
 {% load render_bundle from webpack_loader %}
 
+{% block body_class %}
+col-sm-6 col-sm-offset-3
+{% endblock body_class %}
+
 {% block head_title %}
 Django Index
 {% endblock head_title %}
 
 {% block body %}
+<h1>{{ title }}</h1>
+
 <div id="react-root"></div>
-<h1>{{ title }} is Working </h1>
-
-{% for obj in object_list %}
-
-{# Three ways to do Links #}
-{# <a href='/post/{{ obj.id }}'>{{ obj.title }}</a></br> #}
-{# <a href='{% url "Post:detail_url" id=obj.id %}'>{{ obj.title }}</a></br> #}
-
-<a href='{{ obj.get_absolute_url }}'>{{ obj.title }}</a></br>
-URL: {% url "posts:detail" id=obj.id %}<br/>
-Id: {{ obj.id }}<br/>
-Content: {{ obj.content }}<br/>
-Timestamp: {{ obj.timestamp }}<br/>
-Updated: {{ obj.updated }}<br/>
-
-{% endfor %}
-
 {% render_bundle 'vendors' %}
-{# {% render_bundle 'Index' %} #}
+{% render_bundle 'Index' %}
 {% endblock body %}

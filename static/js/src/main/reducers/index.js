@@ -6,15 +6,20 @@
 //   By: kcheung <kcheung@42.fr>                    +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2018/01/15 13:52:00 by kcheung           #+#    #+#             //
-//   Updated: 2018/01/17 14:44:41 by kcheung          ###   ########.fr       //
+//   Updated: 2018/01/17 21:34:00 by kcheung          ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
 import { combineReducers } from 'redux';
-import types from '../actions/actionTypes'
 import visibilityFilter from './visibilityFilter'
 import todos from './todos'
 import user from './user'
+
+export const reducers = combineReducers({
+	user: user,
+	visibilityFilter: visibilityFilter,
+	todos: todos
+})
 
 // const initialState = {
 //visibilityFilter: VisibilityFilters.SHOW_ALL,
@@ -47,8 +52,3 @@ import user from './user'
 // }
 
 
-export const reducers = combineReducers({
-	user: user,
-	visibilityFilter: visibilityFilter,
-	todos: todos
-})
