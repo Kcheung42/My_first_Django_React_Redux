@@ -17,9 +17,9 @@ urlpatterns = [
 	url(r'^api/$', PostListAPIView.as_view(), name='list-api'),
 	url(r'^api/(?P<id>\d+)/$', PostDetailAPIView.as_view(), name='detail-api'),
 	url(r'^create/$', post_create),
-	url(r'^delete/(?P<id>\d+)/$', post_delete),
+	url(r'^delete/(?P<id>\d+)/$', post_delete, name='delete'),
 	url(r'^list/$', post_list, name='list'),
-	url(r'^edit/(?P<id>\d+)/$', post_update),
+	url(r'^edit/(?P<id>\d+)/$', post_update, name='edit'),
 ]
 
 #This

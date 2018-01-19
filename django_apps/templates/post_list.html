@@ -4,11 +4,11 @@
 {% load render_bundle from webpack_loader %}
 
 {% block head_title %}
-Django Index
+MyFirstBlog
 {% endblock head_title %}
 
 {% block body_class %}
-col-sm-8 col-sm-offset-3
+col-sm-6 col-sm-offset-3
 {% endblock body_class %}
 
 {% block body %}
@@ -23,10 +23,17 @@ col-sm-8 col-sm-offset-3
 <div class="row">
 	<div class="col-sm-12">
 		<div class="thumbnail">
+			{% if obj.image %}
+				<img src="{{ obj.image.url }}" class="img-responsive">
+			{% endif %}
 			<div class="caption">
-				<h3><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a> <small>{{ obj.timestamp|timesince }}</small></h3>
+				<h3><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a> <small>{{ obj.timestamp|timesince }} {{ obj.id }}</small></h3>
 				<p>{{ obj.content|linebreaks|truncatechars:120 }}</p>
-				<p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary" role="button">View</a></p>
+				<p>
+				<a href="{{ obj.get_absolute_url }}" class="btn btn-primary" role="button">View</a>
+				<a href="{{ obj.get_edit_url }}" class="btn btn-primary" role="button">Edit</a>
+				<a href="{{ obj.get_delete_url }}" class="btn btn-primary" role="button">Delete</a>
+				</p>
 			</div>
 		</div>
 	</div>
@@ -44,6 +51,25 @@ col-sm-8 col-sm-offset-3
 
 {% endfor %}
 
+{# Code for Pagination from django docs #}
+<div class="pagination">
+	<span class="step-links">
+		{% if object_list.has_previous %}
+		<a href="?{{ page_request_var }}=1">&laquo; first</a>
+		<a href="?{{ page_request_var }}={{ object_list.previous_page_number }}">previous</a>
+		{% endif %}
+
+		<span class="current">
+			Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+		</span>
+
+		{% if object_list.has_next %}
+		<a href="?{{ page_request_var }}={{ object_list.next_page_number }}">next</a>
+		<a href="?{{ page_request_var }}={{ object_list.paginator.num_pages }}">last &raquo;</a>
+		{% endif %}
+	</span>
+</div>
+
 {% render_bundle 'vendors' %}
-{# {% render_bundle 'index' %} #}
+{% render_bundle 'Index' %}
 {% endblock body %}

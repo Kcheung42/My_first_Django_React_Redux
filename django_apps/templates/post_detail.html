@@ -14,6 +14,10 @@ col-sm-6 col-sm-offset-3
 {% block body %}
 <div id="react-root"></div>
 
+{% if instance.image %}
+	<img src="{{ instance.image.url }}" class="img-responsive">
+{% endif %}
+
 <h1>{{ title }} <small>{{ instance.timestamp }}</small></h1>
 
 {{ instance.content|linebreaks }}<br/>

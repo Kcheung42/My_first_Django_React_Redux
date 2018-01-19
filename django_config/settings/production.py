@@ -17,7 +17,7 @@ WEBPACK_LOADER = {
 # ------------------------------------------------------------------------------
 # https://whitenoise.readthedocs.io/
 
-MIDDLEWARE = DJANGO_SECURITY_MIDDLEWARE + ['whitenoise.middleware.WhiteNoiseMiddleware'] + DJANGO_MIDDLEWARE
+MIDDLEWARE_CLASSES = DJANGO_SECURITY_MIDDLEWARE + ['whitenoise.middleware.WhiteNoiseMiddleware'] + DJANGO_MIDDLEWARE
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 

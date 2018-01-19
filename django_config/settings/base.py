@@ -20,8 +20,6 @@ from decouple import config
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 APPS_DIR = os.path.join(BASE_DIR, 'django_apps')
-print("This is base dir==============={}".format(BASE_DIR))
-print("This is Apps dir==============={}".format(APPS_DIR))
 
 
 # SECRET KEY
@@ -78,8 +76,8 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-		'django_apps.posts',
-		]
+	'django_apps.posts',
+]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -102,7 +100,7 @@ DJANGO_MIDDLEWARE = [
 	'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-MIDDLEWARE = DJANGO_SECURITY_MIDDLEWARE + DJANGO_MIDDLEWARE
+MIDDLEWARE_CLASSES = DJANGO_SECURITY_MIDDLEWARE + DJANGO_MIDDLEWARE
 
 
 # URL Configuration
@@ -214,6 +212,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
 MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
+print("BaseDir ================= {}".format(BASE_DIR))
+print("staticRoot ================= {}".format(STATIC_ROOT))
+print("MediaRoot ================= {}".format(MEDIA_ROOT))
+print("MeidaURL ================= {}".format(MEDIA_URL))
 
 
 # Django REST framework

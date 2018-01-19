@@ -15,7 +15,6 @@ urlpatterns = [
 	url(r'^api-token-auth/', obtain_jwt_token),
 	url(r'^api-token-refresh/', refresh_jwt_token),
 	url(r'^api-token-verify/', verify_jwt_token),
-
 	# our urls
 	url(r'^post/', include('django_apps.posts.urls', namespace='posts')), #Namespace used only with Sets of Urls
 ]
@@ -25,3 +24,6 @@ if settings.DEBUG:
 	urlpatterns += [
 		url(r'^__debug__/', include(debug_toolbar.urls)),
 	]
+	urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+	urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+		# static(settings.STATIC_URL, document_root=settings.STATIC_ROOT),

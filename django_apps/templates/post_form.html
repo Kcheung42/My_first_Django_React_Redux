@@ -4,7 +4,7 @@
 {% load render_bundle from webpack_loader %}
 
 {% block head_title %}
-Create Post
+MyFirstBlog: Create Post
 {% endblock head_title %}
 
 {% block body_class %}
@@ -15,7 +15,7 @@ col-sm-6 col-sm-offset-3
 <div id="react-root"></div>
 <h1>Form</h1>
 
-<form method='POST' action=''>{% csrf_token %} {# must have csrf token Validation #}
+<form method='POST' action='' enctype='multipart/form-data'>{% csrf_token %} {# must have csrf token Validation #}
 	{{ form.as_p }}
 	<input type='submit' value='Create Post' />
 </form>
