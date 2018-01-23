@@ -5,14 +5,19 @@
 * Django REST APIs
 * ReactJS
 * Webpack module bundler and Hot Reloading (Hot Reloader 3)
+* Nginx
 
-# Setup Local Environment
+## Prerequesites
+Must have docker installed:
+https://www.docker.com/community-edition#/download
+
+## Setup Local Environment
 
 1. Create .env file
  
-###### Here's a Sample
+###### Here's a Sample:
 ```
- SECRET_KEY='#_r+1boq=zxhknws&0-8l)fi77tp#%if+ii%$ek6h86_iv3q%&'
+ SECRET_KEY='#_r+1boq=zxhknws&0-8l)fi87tp#%if+ii%$ek6h86_iv3q%&'
  DEBUG=true
  DJANGO_SETTINGS_MODULE=django_config.settings.local
  ALLOWED_HOSTS= 127.0.0.1 0.0.0.0
@@ -21,7 +26,6 @@
  
  MAILGUN_API_KEY=[mailgun-api-key]
  MAILGUN_DEFAULT_FROM_EMAIL=[email]
- 
  
  POSTGRES_PASSWORD=1234
  POSTGRES_USER=django
@@ -46,8 +50,6 @@ DEBUG = false
  
 ## Babel
 Javascript has versions named ECMAScript (ES). Allows us to have a clean, maintainable code using the latest JS specifications without needing to worry about browser support.
-
-## Webpack
 
 ## Why Django + React + Redux
 

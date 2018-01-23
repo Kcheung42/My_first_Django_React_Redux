@@ -51,7 +51,7 @@ col-sm-6 col-sm-offset-3
 
 {% endfor %}
 
-{# Code for Pagination from django docs #}
+{# Code for Pagination from django docs. Replaced 'page' with page_request_var #}
 <div class="pagination">
 	<span class="step-links">
 		{% if object_list.has_previous %}
