@@ -19,5 +19,6 @@ col-sm-6 col-sm-offset-3
 	{{ form.as_p }}
 	<input type='submit' value={{ type }} />
 </form>
+<a href="{% url 'posts:list'%}" class="btn btn-primary" role="button">Go Back</a>
 
 {% endblock body %}

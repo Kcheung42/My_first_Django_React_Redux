@@ -6,7 +6,7 @@
 //   By: kcheung <kcheung@42.fr>                    +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2018/01/15 11:17:45 by kcheung           #+#    #+#             //
-//   Updated: 2018/01/15 12:26:29 by kcheung          ###   ########.fr       //
+//   Updated: 2018/01/24 20:41:07 by kcheung          ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -24,11 +24,10 @@ export class App1Container extends React.Component{
 		return(
 			<div>
 				<HelloWorld>Bambi</HelloWorld>
-				<Button label="Buton Component">Bambi</Button>
-				<Toggle />
 				<Footer />
 				<VisibleTdoList />
 				<AddTodo />
+				<Toggle />
 			</div>
 		);
 	}

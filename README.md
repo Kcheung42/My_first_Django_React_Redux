@@ -1,4 +1,4 @@
-# A Boilerplate Example for a Dockerized Django/ReactJS web application with Postgres database
+# Django + Docker + React + Redux
 
 ## This is an example project using the following technologies:
 * Docker with Docker Compose
@@ -6,6 +6,10 @@
 * ReactJS
 * Webpack module bundler and Hot Reloading (Hot Reloader 3)
 * Nginx
+
+#### This project has two parts
+* A Todo List (React + Redux)
+* Blog Site (Django)
 
 ## Prerequesites
 Must have docker installed:

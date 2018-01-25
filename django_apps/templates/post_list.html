@@ -18,6 +18,9 @@ col-sm-6 col-sm-offset-3
 <form action="" method="GET" >
 	<input type="text" placeholder='Search posts' name=q value='{{ request.GET.q }}'>
 	<input type="submit" value='Search'>
+	{% if request.user.is_staff or request.user.superuser %}
+	<a href={% url 'posts:create' %} class="btn btn-primary" role="button">Add</a>
+	{% endif %}
 </form>
 
 {% for obj in object_list %}

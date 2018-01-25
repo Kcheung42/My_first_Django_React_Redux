@@ -24,8 +24,8 @@ col-sm-6 col-sm-offset-3
 {% endif %}
 
 {{ instance.content|linebreaks }}<br/>
-{{ instance.updated }}<br/>
-{{ instance.id }}<br/>
+Last Updated: {{ instance.updated }}<br/>
+<a href="{% url 'posts:list'%}" class="btn btn-primary" role="button">Go Back</a>
 
 {# {% render_bundle 'vendors' %} #}
 {# {% render_bundle 'Index' %} #}
