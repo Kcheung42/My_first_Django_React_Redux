@@ -45,7 +45,7 @@ col-sm-6 col-sm-offset-3
 				{% if request.user.get_full_name %}
 					<p>Author: {{ request.user.get_full_name }}</p>
 				{% endif %}
-				<p>{{ obj.content|linebreaks|truncatechars:120 }}</p>a
+				<p>{{ obj.content|linebreaks|truncatechars:120 }}</p>
 				<p>
 					<a href="{{ obj.get_absolute_url }}" class="btn btn-primary" role="button">View</a>
 					{% if request.user.is_staff or request.user.is_superuser %}

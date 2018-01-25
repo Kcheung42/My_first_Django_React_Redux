@@ -70,7 +70,7 @@ def post_list(request):
 			Q(title__icontains=query)| #import Q to seach multiple
 			Q(content__icontains=query)
 		).distinct() #No duplicte items
-	paginator = Paginator(queryset_list, 4) # Show 7 contacts per page
+	paginator = Paginator(queryset_list, 7) # Show 7 contacts per page
 	page = request.GET.get('abc') #must be named same as page_var
 	page_request_var = 'abc'
 	try:
