@@ -22,6 +22,7 @@ urlpatterns = [
 	url(r'^(?P<slug>[\w-]+)/api/$', PostDetailAPIView.as_view(), name='detail-api'),
 ]
 
+# Old without slugs
 # urlpatterns = [
 # 	url(r'^$', post_home, name='index'),
 # 	url(r'^(?P<id>\d+)/$', post_detail, name='detail'),
